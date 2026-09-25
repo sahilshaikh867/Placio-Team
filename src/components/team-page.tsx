@@ -151,7 +151,7 @@ const mainLeadership: Leader[] = [
     name: "Dipankar Telgote",
     role: "Co-Founder & Strategic Partner",
     badge: "Co-Founder",
-    photo: null, // Add photo URL here e.g. "/images/dipankar-telgote.jpg"
+    photo: "/images/Dipankar Telgote.png",
     quote:
       "Empowering young talent with industry-ready technology and training requires continuous focus on quality and synergy.",
     responsibilities: [
