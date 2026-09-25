@@ -1,0 +1,761 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* Fonts: Powerful Bold Sans-Serif */
+  --font-sans: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+  
+  /* Pure Black & Dark Charcoal Base */
+  --background: #050507;
+  --foreground: #f8fafc;
+  --card: #0c0c10;
+  --card-foreground: #f8fafc;
+  --popover: #0c0c10;
+  --popover-foreground: #f8fafc;
+  
+  /* Neon Orange Primary */
+  --primary: #ff5500;
+  --primary-foreground: #000000;
+  --primary-glow: rgba(255, 85, 0, 0.4);
+  --primary-dark: #cc4400;
+  --primary-light: #ff7722;
+  --orange-neon: #ff6600;
+  --orange-soft: rgba(255, 102, 0, 0.12);
+  --orange-border: rgba(255, 102, 0, 0.35);
+  
+  /* Metallic Silver & Dark Grays */
+  --metallic-silver: #e2e8f0;
+  --metallic-dim: #94a3b8;
+  --dark-surface: #111116;
+  --dark-surface-elevated: #16161d;
+  --dark-border: #22222b;
+  
+  --secondary: #14141b;
+  --secondary-foreground: #f8fafc;
+  --muted: #111117;
+  --muted-foreground: #94a3b8;
+  --accent: #191924;
+  --accent-foreground: #ff6600;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #23232e;
+  --input: #23232e;
+  --ring: #ff5500;
+  
+  /* High Density & Compact Tokens */
+  --dept-cfo-color: #ff7700;
+  --dept-cfo-bg: rgba(255, 119, 0, 0.14);
+  --dept-coo-color: #ff9900;
+  --dept-coo-bg: rgba(255, 153, 0, 0.14);
+  --dept-cto-color: #ff4500;
+  --dept-cto-bg: rgba(255, 69, 0, 0.16);
+  --dept-cmo-color: #ff6a00;
+  --dept-cmo-bg: rgba(255, 106, 0, 0.14);
+  --dept-chro-color: #ff5522;
+  --dept-chro-bg: rgba(255, 85, 34, 0.14);
+  --dept-cpo-color: #ffaa00;
+  --dept-cpo-bg: rgba(255, 170, 0, 0.14);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-bold-heading {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dark Black Shaded Textural Background */
+.dark-texture-bg {
+  background-color: #040406;
+  background-image: 
+    radial-gradient(ellipse at 50% 10%, #0e0e16 0%, #040406 65%),
+    radial-gradient(circle at 50% 75%, #0a0a12 0%, #020203 70%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+}
+
+/* Background Illustration Watermark (Black Shaded & High Contrast) */
+.page-bg-illustration {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('/background-illustration.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.14;
+  filter: grayscale(1) contrast(1.25) brightness(0.7);
+  mix-blend-mode: screen;
+}
+
+
+/* Neon Orange Gradients & Text Glow */
+.text-gradient-orange {
+  background: linear-gradient(135deg, #ff4500 0%, #ff8800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-silver {
+  background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.neon-orange-glow {
+  box-shadow: 0 0 25px rgba(255, 85, 0, 0.4);
+}
+
+.page-shell {
+  width: min(1280px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* Minimal Whitespace & High Information Density */
+.section-space-dense {
+  padding-block: 56px;
+}
+
+.eyebrow-neon {
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-heading-dense {
+  max-width: 800px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.section-heading-dense h2 {
+  margin-top: 8px;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.section-heading-dense > p:last-child {
+  margin: 10px auto 0;
+  max-width: 680px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Hero Section: Black & Orange High Impact */
+.hero-section-dense {
+  position: relative;
+  display: grid;
+  min-height: min(640px, 78vh);
+  align-items: center;
+  padding: 100px 0 60px;
+  isolation: isolate;
+  border-bottom: 1px solid #1a1a24;
+}
+
+.brand-badge-neon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border: 1px solid rgba(255, 85, 0, 0.45);
+  border-radius: 6px;
+  background: rgba(255, 85, 0, 0.1);
+  color: #ff7722;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(255, 85, 0, 0.2);
+}
+
+.hero-title-dense {
+  margin-top: 16px;
+  font-size: clamp(2.8rem, 6.5vw, 5rem);
+  font-weight: 900;
+  line-height: 0.98;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+}
+
+.hero-subtitle-dense {
+  max-width: 700px;
+  margin: 16px auto 0;
+  color: #cbd5e1;
+  font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.impact-pills-dense {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 6px 18px;
+  border: 1px solid rgba(255, 85, 0, 0.3);
+  border-radius: 6px;
+  background: #0e0e14;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.impact-pills-dense span {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.impact-pills-dense i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ff5500;
+  box-shadow: 0 0 8px #ff5500;
+}
+
+/* Image Placeholder Component: Obsidian / Neon Orange Frame */
+.image-placeholder-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px dashed rgba(255, 85, 0, 0.45);
+  background: linear-gradient(145deg, #0e0e14, #14141c);
+  transition: all 0.25s ease;
+}
+
+.image-placeholder-box:hover {
+  border-color: #ff6600;
+  background: linear-gradient(145deg, #12121a, #1a1a24);
+  box-shadow: 0 0 20px rgba(255, 85, 0, 0.25);
+}
+
+.image-placeholder-portrait {
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  border-radius: 6px;
+}
+
+.image-placeholder-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.image-placeholder-icon {
+  color: #ff6600;
+  transition: transform 0.25s ease;
+}
+
+.image-placeholder-box:hover .image-placeholder-icon {
+  transform: scale(1.1);
+}
+
+.image-placeholder-tag {
+  margin-top: 6px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ff7722;
+}
+
+.image-real-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  transition: transform 0.3s ease;
+}
+
+.image-placeholder-box:hover .image-real-photo {
+  transform: scale(1.04);
+}
+
+/* Leadership Grid: 4-Column Compact High Density */
+.leadership-grid-dense {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.leadership-card-dense {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border: 1px solid #22222c;
+  border-radius: 8px;
+  background: #0b0b0f;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+  transition: all 0.25s ease;
+}
+
+.leadership-card-dense:hover {
+  transform: translateY(-3px);
+  border-color: #ff5500;
+  box-shadow: 0 8px 30px rgba(255, 85, 0, 0.2);
+}
+
+.leader-badge-neon {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255, 85, 0, 0.15);
+  border: 1px solid rgba(255, 85, 0, 0.4);
+  color: #ff6600;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.leader-name-dense {
+  margin-top: 12px;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.leader-title-dense {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ff6600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.leader-quote-dense {
+  margin-block: 12px;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #cbd5e1;
+  flex: 1;
+  border-left: 2px solid #ff5500;
+  padding-left: 10px;
+}
+
+/* High-Density Compact Chips */
+.chip-container-dense {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.chip-item-dense {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  border: 1px solid #232330;
+  border-radius: 4px;
+  background: #12121a;
+  color: #e2e8f0;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.chip-item-dense svg {
+  width: 9px;
+  height: 9px;
+  color: #ff5500;
+}
+
+/* Executive Section: 3-Column Dense */
+.executive-section-dense {
+  background: #08080c;
+  border-block: 1px solid rgba(255, 85, 0, 0.2);
+}
+
+.executive-grid-dense {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.executive-card-dense {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #22222e;
+  border-radius: 8px;
+  background: #0c0c12;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+  transition: all 0.25s ease;
+}
+
+.executive-card-dense:hover {
+  transform: translateY(-3px);
+  border-color: #ff5500;
+  box-shadow: 0 10px 30px rgba(255, 85, 0, 0.22);
+}
+
+.executive-card-header-dense {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid #1a1a24;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.executive-card-body-dense {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.exec-role-pill-dense {
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.exec-name-dense {
+  font-size: 1.18rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.exec-title-dense {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #ff6600;
+  text-transform: uppercase;
+}
+
+.exec-quote-dense {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #cbd5e1;
+  margin-block: 10px;
+  flex: 1;
+  border-left: 2px solid #ff5500;
+  padding-left: 8px;
+}
+
+/* Department Sub-Teams Block */
+.department-block-dense {
+  margin-bottom: 36px;
+  padding: 24px;
+  border: 1px solid #22222e;
+  border-radius: 10px;
+  background: #09090e;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.department-block-header-dense {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #1c1c28;
+}
+
+.department-block-title-dense {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.department-block-subtitle-dense {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.department-count-badge-dense {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Sub-Team High Density Grids */
+.subteam-grid-dense {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.subteam-grid-cto-dense {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.subteam-grid-4-dense {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.member-card-dense {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border: 1px solid #1c1c26;
+  border-radius: 6px;
+  background: #0f0f16;
+  transition: all 0.2s ease;
+}
+
+.member-card-dense:hover {
+  border-color: #ff5500;
+  background: #14141e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 85, 0, 0.18);
+}
+
+.member-placeholder-tag-dense {
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ff6600;
+  margin-top: 6px;
+}
+
+.member-role-dense {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-top: 1px;
+}
+
+.member-focus-dense {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  line-height: 1.35;
+  flex: 1;
+}
+
+/* Department Accent Pills in Black & Neon Orange */
+.dept-pill-neon {
+  color: #ff5500;
+  background: rgba(255, 85, 0, 0.15);
+  border: 1px solid rgba(255, 85, 0, 0.35);
+}
+
+/* Corporate Values Dense */
+.values-container-dense {
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(255, 85, 0, 0.2);
+  background: #08080c;
+}
+
+.values-grid-dense {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.value-item-dense {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 14px 8px;
+  border: 1px solid #1e1e2a;
+  border-radius: 6px;
+  background: #0d0d14;
+  transition: all 0.2s ease;
+}
+
+.value-item-dense:hover {
+  border-color: #ff5500;
+  background: #12121c;
+  box-shadow: 0 0 16px rgba(255, 85, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+.value-item-dense svg {
+  width: 20px;
+  height: 20px;
+  color: #ff5500;
+  margin-bottom: 6px;
+}
+
+.value-item-dense span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+/* CTA & Buttons */
+.cta-section-dense {
+  padding: 64px 0;
+  text-align: center;
+  background: radial-gradient(circle at center, #11111a 0%, #050507 75%);
+  border-top: 1px solid rgba(255, 85, 0, 0.25);
+}
+
+.btn-neon-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ff4500 0%, #ff7700 100%);
+  color: #000000;
+  font-weight: 900;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(255, 85, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-neon-orange:hover {
+  background: linear-gradient(135deg, #ff5500 0%, #ff8800 100%);
+  box-shadow: 0 0 30px rgba(255, 85, 0, 0.65);
+  transform: translateY(-2px);
+}
+
+.btn-neon-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 85, 0, 0.06);
+  border: 1px solid rgba(255, 85, 0, 0.45);
+  color: #ff7722;
+  font-weight: 900;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.btn-neon-outline:hover {
+  background: rgba(255, 85, 0, 0.15);
+  border-color: #ff6600;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1100px) {
+  .subteam-grid-cto-dense {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .leadership-grid-dense {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .executive-grid-dense {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .leadership-grid-dense,
+  .executive-grid-dense,
+  .subteam-grid-dense,
+  .subteam-grid-cto-dense,
+  .subteam-grid-4-dense {
+    grid-template-columns: 1fr;
+  }
+  
+  .department-block-header-dense {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .values-grid-dense {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
