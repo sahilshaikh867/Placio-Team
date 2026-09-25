@@ -121,7 +121,7 @@ const mainLeadership: Leader[] = [
     name: "Rajesh More",
     role: "Founder & Visionary",
     badge: "Founder",
-    photo: "/images/rajesh-more.jpeg",
+    photo: "/images/Rajesh More.png",
     quote:
       "A bold vision becomes meaningful when it creates enduring value for students, institutions, and the digital future.",
     responsibilities: [
@@ -136,7 +136,7 @@ const mainLeadership: Leader[] = [
     name: "Pradeep Paygude",
     role: "Co-Founder & Strategic Partner",
     badge: "Co-Founder",
-    photo: "/images/pradeep-paygude.jpeg",
+    photo: "/images/Pradeep Paygude.png",
     quote:
       "Disciplined financial governance and seamless operational rhythm transform ambitious ideas into lasting impact.",
     responsibilities: [
@@ -200,7 +200,7 @@ const executiveTeam: ExecutiveRole[] = [
     title: "Chief Financial Officer",
     roleCode: "CFO",
     department: "Finance",
-    photo: "/images/pradeep-paygude.jpeg",
+    photo: "/images/Pradeep Paygude.png",
     quote:
       "Fiscal integrity, structured risk governance, and disciplined capital allocation fuel our long-term sustainable growth.",
     keyPillars: ["Capital Strategy", "Financial Governance", "Risk & Compliance"],
@@ -211,7 +211,7 @@ const executiveTeam: ExecutiveRole[] = [
     title: "Chief Operating Officer",
     roleCode: "COO",
     department: "Operations",
-    photo: "/images/pradeep-paygude.jpeg",
+    photo: "/images/Pradeep Paygude.png",
     quote:
       "Flawless operations transform strategic roadmaps into dependable, measurable daily value for colleges and partners.",
     keyPillars: ["Operational Excellence", "Process Optimization", "Delivery Systems"],
@@ -233,7 +233,7 @@ const executiveTeam: ExecutiveRole[] = [
     title: "Chief Marketing Officer",
     roleCode: "CMO",
     department: "Marketing",
-    photo: "/images/rushi-wagh.jpeg",
+    photo: "/images/rushi wagh.png",
     quote:
       "A trusted brand is built through consistent value, authentic storytelling, and meaningful relationships with academia.",
     keyPillars: ["Brand Positioning", "Institutional Outreach", "Growth Marketing"],
@@ -255,7 +255,7 @@ const executiveTeam: ExecutiveRole[] = [
     title: "Chief Product Officer",
     roleCode: "CPO",
     department: "Product",
-    photo: "/images/rajesh-more.jpeg",
+    photo: "/images/Rajesh More.png",
     quote:
       "World-class products begin by listening deeply to educators and students, crafting intuitive, impact-driven tools.",
     keyPillars: ["Product Vision", "UI/UX Excellence", "Continuous Discovery"],
@@ -736,7 +736,7 @@ export function TeamPage() {
               <article key={leader.id} className="leadership-card-dense">
                 <span className="leader-badge-neon">{leader.badge}</span>
 
-                <div className="mt-3 w-full h-[230px]">
+                <div className="mt-3 aspect-[4/3] w-full">
                   <ImagePlaceholder
                     photo={leader.photo}
                     name={leader.name}
