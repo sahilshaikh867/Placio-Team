@@ -282,7 +282,10 @@ html {
   box-shadow: 0 0 8px #ff5500;
 }
 
-/* Image Placeholder Component: Obsidian / Neon Orange Frame */
+/* ------------------------------------------------------------- */
+/* High-Density Photo & Avatar Frames (Fixed & Responsive)       */
+/* ------------------------------------------------------------- */
+
 .image-placeholder-box {
   position: relative;
   display: flex;
@@ -290,27 +293,37 @@ html {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 1px dashed rgba(255, 85, 0, 0.45);
-  background: linear-gradient(145deg, #0e0e14, #14141c);
+  border-radius: 6px;
+  background: #08080c;
+  border: 1px dashed rgba(255, 85, 0, 0.35);
   transition: all 0.25s ease;
 }
 
+.image-placeholder-box:has(.image-real-photo) {
+  border: 1px solid #1f1f2c;
+  background: #060609;
+}
+
 .image-placeholder-box:hover {
-  border-color: #ff6600;
-  background: linear-gradient(145deg, #12121a, #1a1a24);
-  box-shadow: 0 0 20px rgba(255, 85, 0, 0.25);
+  border-color: #ff5500;
+  box-shadow: 0 0 18px rgba(255, 85, 0, 0.25);
 }
 
 .image-placeholder-portrait {
   width: 100%;
-  height: 100%;
-  min-height: 190px;
+  height: 230px;
+  min-height: 230px;
+  max-height: 230px;
   border-radius: 6px;
 }
 
 .image-placeholder-avatar {
   width: 58px;
   height: 58px;
+  min-width: 58px;
+  min-height: 58px;
+  max-width: 58px;
+  max-height: 58px;
   border-radius: 6px;
   flex-shrink: 0;
 }
@@ -337,12 +350,14 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   border-radius: inherit;
-  transition: transform 0.3s ease;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .image-placeholder-box:hover .image-real-photo {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 /* Leadership Grid: 4-Column Compact High Density */

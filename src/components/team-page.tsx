@@ -121,7 +121,7 @@ const mainLeadership: Leader[] = [
     name: "Rajesh More",
     role: "Founder & Visionary",
     badge: "Founder",
-    photo: null, // Add photo URL here e.g. "/images/rajesh-more.jpg"
+    photo: "/images/rajesh-more.jpeg",
     quote:
       "A bold vision becomes meaningful when it creates enduring value for students, institutions, and the digital future.",
     responsibilities: [
@@ -136,7 +136,7 @@ const mainLeadership: Leader[] = [
     name: "Pradeep Paygude",
     role: "Co-Founder & Strategic Partner",
     badge: "Co-Founder",
-    photo: null, // Add photo URL here e.g. "/images/pradeep-paygude.jpg"
+    photo: "/images/pradeep-paygude.jpeg",
     quote:
       "Disciplined financial governance and seamless operational rhythm transform ambitious ideas into lasting impact.",
     responsibilities: [
@@ -166,7 +166,7 @@ const mainLeadership: Leader[] = [
     name: "Sahil Shaikh",
     role: "Chief Executive Officer (CEO)",
     badge: "Chief Executive",
-    photo: null, // Add photo URL here e.g. "/images/sahil-shaikh.jpg"
+    photo: "/images/sahil-shaikh.jpg",
     quote:
       "Execution is where innovation earns its place—bridging academic potential and industry excellence with precision.",
     responsibilities: [
@@ -200,7 +200,7 @@ const executiveTeam: ExecutiveRole[] = [
     title: "Chief Financial Officer",
     roleCode: "CFO",
     department: "Finance",
-    photo: null,
+    photo: "/images/pradeep-paygude.jpeg",
     quote:
       "Fiscal integrity, structured risk governance, and disciplined capital allocation fuel our long-term sustainable growth.",
     keyPillars: ["Capital Strategy", "Financial Governance", "Risk & Compliance"],
@@ -211,7 +211,7 @@ const executiveTeam: ExecutiveRole[] = [
     title: "Chief Operating Officer",
     roleCode: "COO",
     department: "Operations",
-    photo: null,
+    photo: "/images/pradeep-paygude.jpeg",
     quote:
       "Flawless operations transform strategic roadmaps into dependable, measurable daily value for colleges and partners.",
     keyPillars: ["Operational Excellence", "Process Optimization", "Delivery Systems"],
@@ -222,7 +222,7 @@ const executiveTeam: ExecutiveRole[] = [
     title: "Chief Technology Officer",
     roleCode: "CTO",
     department: "Technology",
-    photo: null,
+    photo: "/images/sahil-shaikh.jpg",
     quote:
       "Intelligent technology and robust AI architectures must simplify complex placement workflows and empower thousands.",
     keyPillars: ["AI & Cloud Architecture", "Scalable Systems", "Security & Reliability"],
@@ -233,7 +233,7 @@ const executiveTeam: ExecutiveRole[] = [
     title: "Chief Marketing Officer",
     roleCode: "CMO",
     department: "Marketing",
-    photo: null,
+    photo: "/images/rushi-wagh.jpeg",
     quote:
       "A trusted brand is built through consistent value, authentic storytelling, and meaningful relationships with academia.",
     keyPillars: ["Brand Positioning", "Institutional Outreach", "Growth Marketing"],
@@ -255,7 +255,7 @@ const executiveTeam: ExecutiveRole[] = [
     title: "Chief Product Officer",
     roleCode: "CPO",
     department: "Product",
-    photo: null,
+    photo: "/images/rajesh-more.jpeg",
     quote:
       "World-class products begin by listening deeply to educators and students, crafting intuitive, impact-driven tools.",
     keyPillars: ["Product Vision", "UI/UX Excellence", "Continuous Discovery"],
@@ -736,7 +736,7 @@ export function TeamPage() {
               <article key={leader.id} className="leadership-card-dense">
                 <span className="leader-badge-neon">{leader.badge}</span>
 
-                <div className="mt-3 aspect-[4/3] w-full">
+                <div className="mt-3 w-full h-[230px]">
                   <ImagePlaceholder
                     photo={leader.photo}
                     name={leader.name}

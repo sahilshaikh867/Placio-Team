@@ -77,12 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Our Team" },
-      { name: "description", content: "Meet the people turning shared vision into meaningful impact." },
-      { name: "author", content: "Our Team" },
+      { title: "Leadership & Team | PlacioBridge Technologies" },
+      { name: "description", content: "Meet the visionary leaders and engineering minds powering PlacioBridge Technologies across India." },
+      { name: "author", content: "PlacioBridge Technologies LLP" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@PlacioBridge" },
     ],
     links: [
       {
